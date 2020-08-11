@@ -3,8 +3,8 @@ use std::io::prelude::*;
 use std::path::Path;
 use std::env;
 
-fn main() {
-
+fn main() -> bool {
+    let jail: bool = true;
     let args: Vec<String> = env::args().collect();
     let mut hacker_ip = &args[1];
     let linechange = "\n";
@@ -22,6 +22,6 @@ fn main() {
         Err(why) => panic!("couldn't write to {}: {}", display, why),
         Ok(_) => println!("successfully wrote to {}", display),
     }
-    
-    return true;
+
+    return(jail);
 }
